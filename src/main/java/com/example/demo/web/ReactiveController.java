@@ -2,6 +2,7 @@ package com.example.demo.web;
 
 import com.example.demo.model.Todo;
 import com.example.demo.repository.TodoRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -13,6 +14,8 @@ import java.util.List;
  * The {@code ReactiveController} class handles web requests to demonstrate reactive programming concepts
  * using Spring WebFlux. It provides endpoints to fetch Todo items as a Mono or a Flux stream.
  */
+@CrossOrigin
+
 @RestController
 public class ReactiveController {
 

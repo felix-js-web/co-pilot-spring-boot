@@ -21,7 +21,7 @@ RUN chmod +x ./gradlew
 RUN ./gradlew build
 
 # Use OpenJDK 21 JRE for the runtime image
-FROM eclipse-temurin:21.0.2_13-jdkRefactor Docker setup for Java 21, implement reactive Todo API, and prepare for Swagger docs and testing
+FROM eclipse-temurin:21.0.2_13-jdk
 
 # Copy the built jar file from the build stage
 COPY --from=build /app/build/libs/*.jar app.jar
