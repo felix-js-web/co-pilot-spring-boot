@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  title: Todo API
+  description: API for managing Todo items using reactive programming concepts with Spring WebFlux.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local server
+paths:
+  /mono:
+    get:
+      summary: Get all Todo items as a Mono
+      operationId: getTodosAsMono
+      tags:
+        - Todo
+      responses:
+        '200':
+          description: A list of all Todo items wrapped in a Mono
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+        '500':
+          description: Internal Server Error
+  /flux:
+    get:
+      summary: Get a series of predefined string responses as a Flux
+      operationId: getStringResponsesAsFlux
+      tags:
+        - Todo
+      responses:
+        '200':
+          description: A series of predefined string responses wrapped in a Flux
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '500':
+          description: Internal Server Error
+components:
+  schemas:
+    Todo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The unique identifier of the Todo item.
+        title:
+          type: string
+          description: The title of the Todo item.
+        completed:
+          type: boolean
+          description: The completion status of the Todo item.
